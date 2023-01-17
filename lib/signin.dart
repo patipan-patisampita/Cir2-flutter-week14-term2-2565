@@ -11,6 +11,13 @@ class _SignInState extends State<SignIn> {
   bool _isObscure = true;
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(_isObscure);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +27,7 @@ class _SignInState extends State<SignIn> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image(image: AssetImage('assets/images/login.png'),height: 200, width: 300),
+          Image(image: AssetImage('assets/images/login.png'),height: 150, width: 200),
           Container(
             child: Text("SIGN IN SYSTEM"),
           ),
@@ -28,6 +35,7 @@ class _SignInState extends State<SignIn> {
           Container(
             padding: EdgeInsets.all(8.0),
             child: TextField(
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Username',
@@ -45,6 +53,7 @@ class _SignInState extends State<SignIn> {
                     onPressed: () {
                       setState(() {
                         _isObscure = !_isObscure;
+                        print(_isObscure);
                       });
                     },
                     icon: Icon(_isObscure == false
