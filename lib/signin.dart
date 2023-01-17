@@ -19,6 +19,9 @@ class _SignInState extends State<SignIn> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
+            child: Text("SIGN IN SYSTEM"),
+          ),
+          Container(
             padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
@@ -34,6 +37,14 @@ class _SignInState extends State<SignIn> {
                 border: OutlineInputBorder(),
                 labelText: 'Password',
               ),
+            ),
+          ),
+          Container(
+            child: ElevatedButton(
+              onPressed: () {
+
+              },
+              child: Text("Login"),
             ),
           ),
         ],
