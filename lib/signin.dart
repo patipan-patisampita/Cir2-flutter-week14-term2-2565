@@ -8,6 +8,8 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  bool _isObscure = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +20,7 @@ class _SignInState extends State<SignIn> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Image(image: AssetImage('assets/images/login.png'),height: 200, width: 300),
           Container(
             child: Text("SIGN IN SYSTEM"),
           ),
@@ -34,17 +37,27 @@ class _SignInState extends State<SignIn> {
           Container(
             padding: EdgeInsets.all(8.0),
             child: TextField(
+              obscureText: _isObscure,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Password',
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _isObscure = !_isObscure;
+                      });
+                    },
+                    icon: Icon(_isObscure == false
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+                    ),
+                ),
               ),
             ),
           ),
           Container(
             child: ElevatedButton(
-              onPressed: () {
-
-              },
+              onPressed: () {},
               child: Text("Login"),
             ),
           ),
